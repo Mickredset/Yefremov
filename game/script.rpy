@@ -2,6 +2,7 @@
 default gold = 11500
 default strange = 0
 default inventory = []
+default velyminovo = False
 # Определение персонажей игры.
 define o = Character('ОП', color="#c8ffc8")
 define s = Character('Sasha', color="#1e88e5")
