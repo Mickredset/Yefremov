@@ -747,6 +747,7 @@ screen preferences():
                         textbutton _("Оконный") action Preference("display", "window")
                         textbutton _("Полный") action Preference("display", "fullscreen")
 
+
                 vbox:
                     style_prefix "check"
                     label _("Пропуск")

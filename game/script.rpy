@@ -14,6 +14,8 @@ define a = Character('Все', color="#228B22")
 define v = Character('Vика', color="#ff591f")
 define p = Character("[name]")
 define c = Character("Продавец")
+define sy = Character("Подвал")
+define d = Character("Денис", color="#ff7f00")
 
 # Определение товаров (Имя, Цена, Описание)
 init python:
@@ -100,6 +102,7 @@ image k normal = "images/k.png"
 image c normal = "images/c.png"
 image t surp = "images/tpsurp.png"
 image c surp = "images/csurp.png"
+image d normal = "images/d.png"
 image sh normal = "images/sh.png"
 image sh surp = "images/shsurp.png"
 # складывать все ваши файлы изображений в папку images.
