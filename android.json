@@ -1,0 +1,24 @@
+{
+    "expansion": false,
+    "google_play_key": null,
+    "google_play_salt": null,
+    "heap_size": "4",
+    "icon_name": "Yefremov",
+    "include_pil": false,
+    "include_sqlite": false,
+    "layout": null,
+    "name": "\u0415\u0444\u0440\u0435\u043c\u043e\u0432",
+    "numeric_version": 1,
+    "orientation": "portrait",
+    "package": "yefremov.floppa_os.org",
+    "permissions": [
+        "VIBRATE",
+        "INTERNET"
+    ],
+    "source": false,
+    "store": "none",
+    "update_always": true,
+    "update_icons": true,
+    "update_keystores": true,
+    "version": "1.0"
+}
