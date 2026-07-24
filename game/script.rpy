@@ -6,12 +6,12 @@ default inventory = []
 define o = Character('ОП', color="#c8ffc8")
 define s = Character('Sasha', color="#1e88e5")
 define t = Character('ТП', color="#228B22")
+define k = Character('Kатя', color="#FF0000")
 define sh = Character('Шурик', color="#228B22")
 define a = Character('Все', color="#228B22")
 define v = Character('Vика', color="#ff591f")
 define p = Character("[name]")
 define c = Character("Продавец")
-define k = Character("[name1]")
 
 # Определение товаров (Имя, Цена, Описание)
 init python:

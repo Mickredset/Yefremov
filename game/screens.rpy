@@ -35,7 +35,6 @@ style button_text is gui_text:
 
 style label_text is gui_text:
     properties gui.text_properties("label", accent=True)
-
 style prompt_text is gui_text:
     properties gui.text_properties("prompt")
 
@@ -754,6 +753,12 @@ screen preferences():
                     textbutton _("Всего текста") action Preference("skip", "toggle")
                     textbutton _("После выборов") action Preference("after choices", "toggle")
                     textbutton _("Переходов") action InvertSelected(Preference("transitions", "toggle"))
+                vbox:
+                    style_prefix "radio"
+                    label _("Язык / Language")
+
+                    textbutton "Русский (Оригинал)" action Language("None")
+
 
                 ## Дополнительные vbox'ы типа "radio_pref" или "check_pref"
                 ## могут быть добавлены сюда для добавления новых настроек.
