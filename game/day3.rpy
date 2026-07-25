@@ -132,4 +132,9 @@ label home3:
 
     show v normal at center
 
+    t "Но вот старый колодец"
+
+    v "Саша набери воду из колодца"
+
+    
     return
