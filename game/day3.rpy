@@ -366,3 +366,5 @@ label day4:
     show screen resources_hud
 
     v "Надо завтракать!"
+
+    "Вы позавтракали"
