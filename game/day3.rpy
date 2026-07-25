@@ -264,10 +264,28 @@ label home3:
             $ renpy.save_persistent()
             a "Пока!"
             $ renpy.quit()
-        "Никого не спсти, но узнать истину":
+        "Никого не спасти, но узнать истину":
             $ strange += 1
             "Продолжай"
     "Выбор сделан"
-    
 
+    vpr "Остановка!"
+
+    scene home1
+
+    s "Мы дома"
+
+    v "Почему?"
+
+    t "Я не знаю"
+
+    show t normal at left
+
+    show s normal at right
+
+    show v normal at center
+    
+    t "Давайте поужинаем и ляжем спать"
+
+    s "Давайте!"
     return
