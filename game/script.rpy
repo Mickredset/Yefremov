@@ -21,6 +21,8 @@ default velyminovo = False
 default flp = 0
 default text = "Нету"
 default fan = 0
+default electricity = 100
+default gaz_v = 100
 
 # Определение персонажей игры.
 define o = Character('ОП', color="#c8ffc8")

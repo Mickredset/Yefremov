@@ -298,6 +298,7 @@ label home3:
         jump velyminovoend
     else:
         "Вы ложитесь спать"
+        jump day4
     return
 label velyminovoend:
     scene vhome
@@ -315,3 +316,53 @@ label velyminovoend:
     "Зайди в меню! Нажми внизу кнопку меню! Или она мое называться опции"
 
     "Ты не можешь отступить"
+
+# day4
+screen resources_hud():
+    layer "screens"
+
+    # Используем фрейм в верхнем правом углу
+    frame:
+        xalign 1.0
+        yalign 0.0
+        xoffset -20
+        yoffset 20
+        background None
+
+        # vbox (vertical box) расставит строки строго друг под другом
+        vbox:
+            spacing 10 # Расстояние между строкой электричества и газа
+
+            # Строка электричества
+            text "Электричество: [electricity]%" size 24 color "#ffffff" outlines [ (2, "#000000", 0, 0) ]
+
+            # Строка газа
+            text "Газ: [gaz_v]%" size 24 color "#ffffff" outlines [ (2, "#000000", 0, 0) ]
+
+label day4:
+    scene home
+
+    t "Доброе утро!"
+
+    t "У нас из под крана вода чёрная"
+
+    t "Газа и электричества нету"
+
+    show t normal at center
+
+    show s normal at left
+
+    show v normal at right
+
+    s "И как мы жить будем?"
+
+    t "У нас есть дизель"
+
+    t "А также аккамулятор"
+
+
+    "Теперь вверху видно оставшееся электричество и газ"
+
+    show screen resources_hud
+
+    v "Надо завтракать!"
