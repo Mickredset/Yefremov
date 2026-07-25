@@ -271,7 +271,7 @@ label home3:
 
     vpr "Остановка!"
 
-    scene home1
+    scene black
 
     s "Мы дома"
 
@@ -288,4 +288,30 @@ label home3:
     t "Давайте поужинаем и ляжем спать"
 
     s "Давайте!"
+
+    "Вы поужинали"
+
+    "Проверим"
+
+    if velyminovo == True:
+        "Похоже ты выбрал Новое Вельяминово"
+        jump velyminovoend
+    else:
+        "Вы ложитесь спать"
     return
+label velyminovoend:
+    scene vhome
+
+    "Выходи"
+
+
+    "Новое Вельяминово?"
+
+    $ main_menu = True
+    $ persistent.velyminovoend = True
+
+    "А теперь зайди в меню"
+
+    "Зайди в меню! Нажми внизу кнопку меню! Или она мое называться опции"
+
+    "Ты не можешь отступить"

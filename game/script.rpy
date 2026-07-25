@@ -1,10 +1,17 @@
 ﻿# Инициализируем переменную блокировки (по умолчанию False)
 default persistent.game_over_forever = False
+default persistent.velyminovoend = False
 
 # Проверка
 init python:
+    # persistent.velyminovoend = False
+    # persistent.game_over_forever = False
     if persistent.game_over_forever:
         renpy.exports.quit()
+    if persistent.velyminovoend:
+        print("error")
+        renpy.exports.quit()
+
 
 # Вы можете расположить сценарий своей игры в этом файле.
 default gold = 11500
@@ -13,6 +20,7 @@ default inventory = []
 default velyminovo = False
 default flp = 0
 default text = "Нету"
+default fan = 0
 
 # Определение персонажей игры.
 define o = Character('ОП', color="#c8ffc8")
@@ -126,6 +134,8 @@ label start:
     scene screen
 
     s "Ну всё мы приехали"
+
+    $ fan = renpy.random.randint(1, 10)
 
     show o normal
 
