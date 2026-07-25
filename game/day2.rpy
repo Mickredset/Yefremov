@@ -107,5 +107,6 @@ label day2:
             $ strange = 0
         "Выбрать путь Вики":
             "Это важно?"
+
     jump yefremov2
     return

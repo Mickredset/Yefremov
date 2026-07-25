@@ -1,9 +1,19 @@
-﻿# Вы можете расположить сценарий своей игры в этом файле.
+﻿# Инициализируем переменную блокировки (по умолчанию False)
+default persistent.game_over_forever = False
+
+# Проверка
+init python:
+    if persistent.game_over_forever:
+        renpy.exports.quit()
+
+# Вы можете расположить сценарий своей игры в этом файле.
 default gold = 11500
 default strange = 0
 default inventory = []
 default velyminovo = False
 default flp = 0
+default text = "Нету"
+
 # Определение персонажей игры.
 define o = Character('ОП', color="#c8ffc8")
 define s = Character('Sasha', color="#1e88e5")
@@ -16,6 +26,7 @@ define p = Character("[name]")
 define c = Character("Продавец")
 define sy = Character("Подвал")
 define d = Character("Денис", color="#ff7f00")
+define vpr = Character("?", color="#ff7f00")
 
 # Определение товаров (Имя, Цена, Описание)
 init python:
@@ -114,7 +125,7 @@ label start:
 
     scene screen
 
-    s "Ну вё мы приехали"
+    s "Ну всё мы приехали"
 
     show o normal
 

@@ -137,4 +137,137 @@ label home3:
     v "Саша набери воду из колодца"
 
     s "Хорошо"
+
+    "Саша набирает воду из колодца"
+
+    s "Я поднял ведро"
+
+    s "Тут старый ключ"
+
+    t "Видишь?"
+
+    p "Дай мне!"
+
+    $ inventory.append("Старый ключ")
+
+    v "Этот ключ от чего?"
+
+    t "От сарая"
+
+    s "Предлагаю поехать в Ефремов!"
+
+    t "Злое Вельяминово"
+
+    p "Что?"
+
+    t "Поедем"
+
+    a "Надо кушать!"
+
+    s "Обед"
+
+    scene home
+
+    "Вы покушали"
+
+    menu:
+        "Погладить кошку":
+            $ strange += 1
+        "Погладить оленя":
+            jump home3
+    scene volkswagen1
+
+    show t normal at left
+
+    show s normal at right
+
+    show v normal at center
+
+    "В путь"
+    $ text = "Вечер"
+
+    show text "{size=80}{color=#fff}[text]{/color}{/size}" at truecenter
+
+    "Злое Вельяминово/ Новое Вельяминово"
+    hide text "{size=80}{color=#fff}[text]{/color}{/size}" at truecenter
+
+    s "Я проснулся"
+
+    stop music
+
+    play music "p.mp3" fadein 1.0
+
+    t "Мы едим"
+
+    p "Зачем?"
+
+    t "В Злом Вельяминово есть речка"
+
+    s "Речка?"
+
+    t "Слушайте"
+
+    t "В Злом Вельяминово есть речка"
+
+    t "Там сейчас чёрная вода"
+
+    t "Там плавал один мужик"
+
+    t "Он пропал"
+
+    p "Странно"
+
+    s "И что делать?"
+
+    t "Есть там сарай"
+
+    t "Его надо открыть ключом"
+
+    vpr "Мы скоро приедем! Закрывайте окна!"
+
+    scene volkswagen2
+
+    show t normal at left
+
+    show s normal at right
+
+    show v normal at center
+
+    p "Тихо!"
+
+    v "Почему мы так долго?"
+
+    vpr "Остановка. Деревня золото и комары"
+
+    "Вы вышли на остановку и пришли обратно"
+
+    vpr "Продолжаем путь"
+
+    menu:
+        "Съесть огурцы":
+            $ strange += 1
+            if "pickled" in inventory:
+                "У вас есть [inventory]"
+                $ inventory.remove("pickled")
+                "Вы вкусно поели"
+            else:
+                "У вас нету огурцов"
+        "Не есть":
+            "Почему?"
+
+    "Теперь пора сделать финальный выбор"
+
+    menu:
+        "Всех спасти":
+            $ persistent.game_over_forever = True
+            "Все будут жить, а ты нет"
+            $ renpy.save_persistent()
+            a "Пока!"
+            $ renpy.quit()
+        "Никого не спсти, но узнать истину":
+            $ strange += 1
+            "Продолжай"
+    "Выбор сделан"
+    
+
     return
