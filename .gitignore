@@ -1,7 +1,13 @@
 # Directories that Ren'Py changes files in.
 /game/saves
 /game/cache
+
+# system files
 strange.txt
+.idea/
+/game/END
+/bundle.keystore
+/android.keystore
 # Compiled script files. These are important for saving, and so should
 # be preserved by developer and build systems after the game has been released.
 /game/**/*.rpyc
