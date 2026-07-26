@@ -352,6 +352,10 @@ screen resources_hud():
 
             text "Вода: [water] л" size 24 color "#ffffff" outlines [ (2, "#000000", 0, 0) ]
 
+            # Строка времени
+
+            text "Время [time]" size 24 color "#ffffff" outlines [ (2, "#000000", 0, 0) ]
+
 label day4:
     scene home
 
