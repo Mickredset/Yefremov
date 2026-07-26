@@ -26,6 +26,7 @@ default electricity = 100
 default gaz_v = 100
 default water = 35
 default time = "6:00"
+default temper = 0
 
 # Определение персонажей игры.
 define o = Character('ОП', color="#c8ffc8")

@@ -356,6 +356,10 @@ screen resources_hud():
 
             text "Время [time]" size 24 color "#ffffff" outlines [ (2, "#000000", 0, 0) ]
 
+            # Строка температуры и печки
+
+            text "Температура в печке: [temper]" size 24 color "#ffffff" outlines [ (2, "#000000", 0, 0) ]
+
 label day4:
     scene home
 
@@ -437,3 +441,106 @@ label day4:
     t "Сейчас мы одно сделаем"
 
     s "Что?"
+
+    t "Слушай"
+
+    play music "audio/fon.mp3"
+
+    t "Этот подвал - это подвал одинаковый у всех"
+
+    t "Если где то что то изменилось то изменения сихранизируются"
+
+    t "Если одновременно кто то возьмёт один продукт, то продукт пропадёт"
+
+    t "Пропал один продукт, а у тех кто взял продукт остался"
+
+    t "Так можно потратить 1 банку с огурцами, а получить 2"
+
+    p "Это легко решить"
+
+    p "Надо найти старую панель управления"
+
+    p "Там надо отключить функцию push"
+
+    p "И потом скопировать подвал себе"
+
+    p "И отключить свой подвал от сети"
+
+    scene adminpanel
+
+    s "Это панель управления?"
+
+    v "Да"
+
+    $ water -= 4
+    $ electricity -= 5
+    $ time = "7:34"
+
+    t "Алина ты знаешь что делать"
+
+        # Первый цикл
+    $ run_first_loop = True
+    while run_first_loop:
+        menu:
+            "yef push":
+                "Push..."
+                "0"
+            "yef clone":
+                $ strange += 1
+                "0"
+                $ run_first_loop = False # Цикл завершится сам
+
+    # Второй цикл
+    $ run_second_loop = True
+    while run_second_loop:
+        menu:
+            "yef push":
+                "Push..."
+                "0"
+            "yef clone":
+                "0"
+            "yef push.yef = False":
+                $ strange += 1
+                "push.yef off"
+                $ run_second_loop = False # Цикл завершится сам
+
+
+    t "Надеюсь ты справилась!"
+
+    show d normal
+
+    d "У вас тут ошибка!"
+
+    d "Я исправил"
+
+    $ time = "7:37"
+
+    "Вы решили прилечь на расклодушку"
+
+    scene black
+
+    $ time = "17:48"
+    $ water = 14
+    $ gaz = 32
+    $ $ electricity = 30
+
+    scene adminpanel
+
+    "Вы встали и пошли домой"
+
+    scene home
+
+    show v normal at center
+    show s normal at left
+
+    v "Привет!"
+
+    s "Сегодня надо будет не спать ночь"
+
+    p "Почему?"
+
+    v "Ночью из земли люди вылезают"
+
+    scene card
+
+    v "Это карта"
