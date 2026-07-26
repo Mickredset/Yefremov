@@ -1,6 +1,7 @@
 ﻿# Инициализируем переменную блокировки (по умолчанию False)
 default persistent.game_over_forever = False
 default persistent.velyminovoend = False
+default persistent.vika = False
 
 # Проверка
 init python:
@@ -23,6 +24,7 @@ default text = "Нету"
 default fan = 0
 default electricity = 100
 default gaz_v = 100
+default water = 35
 
 # Определение персонажей игры.
 define o = Character('ОП', color="#c8ffc8")
@@ -134,6 +136,10 @@ image sh surp = "images/shsurp.png"
 label start:
 
     scene screen
+
+    if persistent.vikas:
+        v "Зачем?"
+        jump vika
 
     s "Ну всё мы приехали"
 

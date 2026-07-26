@@ -12,6 +12,7 @@ strange.txt
 # be preserved by developer and build systems after the game has been released.
 /game/**/*.rpyc
 /game/**/*.rpymc
+/game/resave
 
 # Files Ren'Py can generate.
 /game/**/*.bak

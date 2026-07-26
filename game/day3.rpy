@@ -293,6 +293,15 @@ label home3:
 
     "Проверим"
 
+    label vika:
+        scene black
+
+        show v normal
+
+        "Ну зачем?"
+
+        jump vika
+
     if velyminovo == True:
         "Похоже ты выбрал Новое Вельяминово"
         jump velyminovoend
@@ -339,6 +348,10 @@ screen resources_hud():
             # Строка газа
             text "Газ: [gaz_v]%" size 24 color "#ffffff" outlines [ (2, "#000000", 0, 0) ]
 
+            # Строка воды
+
+            text "Вода: [water] л" size 24 color "#ffffff" outlines [ (2, "#000000", 0, 0) ]
+
 label day4:
     scene home
 
@@ -368,3 +381,51 @@ label day4:
     v "Надо завтракать!"
 
     "Вы позавтракали"
+
+    s "А у нас сколько воды?"
+
+    $ water -= 1
+
+    p "34 литров"
+
+    v "Воду надо эконопить"
+
+    t "Пойдёмте в подвал!"
+
+    stop music
+
+    scene black
+
+    play sound "audio/footsteps.ogg"
+
+    $ renpy.pause(6.0, hard=True)
+
+    stop sound fadeout 1.0
+
+    scene basement1
+
+    s "Тут холодно"
+
+    menu:
+        "Уничтожить этот мир, но спасти Вику":
+            "Выбор"
+            python:
+                # Получаем список кортежей всех сохранений
+                for save_info in renpy.list_saved_games():
+                    # Извлекаем имя слота (первый элемент кортежа)
+                    slot_name = save_info[0]
+                    # Удаляем сохранение по имени слота
+                    renpy.unlink_save(slot_name)
+            $ persistent.vikas = True
+            $ renpy.save_persistent()
+            $ renpy.quit()
+
+        "Узнать истину":
+            $ strange += 1
+            "Истина близко"
+
+    t "Вот подвал! Сейчас мы придём к Тёте Любе"
+
+    s "Она нас в подвале заперла"
+
+    p "Она сейчас вроде бы в автолавке"
