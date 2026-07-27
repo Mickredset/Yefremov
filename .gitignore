@@ -13,6 +13,7 @@ strange.txt
 /game/**/*.rpyc
 /game/**/*.rpymc
 /game/resave
+.floppai
 
 # Files Ren'Py can generate.
 /game/**/*.bak

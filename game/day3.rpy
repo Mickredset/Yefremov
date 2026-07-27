@@ -466,6 +466,8 @@ label day4:
 
     p "И отключить свой подвал от сети"
 
+
+
     scene adminpanel
 
     s "Это панель управления?"
@@ -522,7 +524,7 @@ label day4:
     $ time = "17:48"
     $ water = 14
     $ gaz = 32
-    $ $ electricity = 30
+    $ electricity = 30
 
     scene adminpanel
 
@@ -544,3 +546,14 @@ label day4:
     scene card
 
     v "Это карта"
+
+    s "Эта карту дала нам ТП"
+
+    scene home
+
+    $ time = "17:50"
+    $ water = 14
+    $ gaz = 30
+    $ electricity = 29
+
+    p "У нас мало электричества!"
