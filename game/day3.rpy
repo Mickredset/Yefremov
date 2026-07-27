@@ -578,7 +578,7 @@ label day4:
 
     show t normal at right
 
-    t "Мы отключились от сети и скопирлвали подвал нам"
+    t "Мы отключились от сети и скопировали подвал нам"
 
     t "Теперь у нас свой подвал"
 
@@ -592,7 +592,9 @@ label day4:
 
     scene black
 
-    play music "audio/my_timer_sound.ogg"
+    $ _skipping = False
+
+    play music "audio/footsteps.ogg"
 
     $ renpy.pause(22.0, hard=True)
 
@@ -600,6 +602,314 @@ label day4:
 
     t "Наш подвал сейчас неопределённный"
 
+    $ _skipping = False
+
     scene basement2
 
     p "Это не наш подвал!"
+
+    show t surp at left
+
+    show s normal at right
+
+    show v normal at center
+
+    v "Это погреб"
+
+    p "Надо из него выйти"
+
+    scene yh
+
+    show t surp at left
+
+    show s normal at right
+
+    show v normal at center
+
+    p "Мы вышли не к себе"
+
+    s "Мы скопировали не наш подвал!"
+
+    s "Можно войти в скопированный подвал, но выйти можно только в определённое место!"
+
+    p "И что?"
+
+    s "Обратно залезаем в погреб"
+
+    scene basement2
+
+    "Вы взяли одну банку"
+
+    $ inventory.append("Солёные огурчики")
+
+    "У вас есть [inventory]"
+
+    $ time = "19:20"
+    $ water = 6
+    $ electricity = 0
+    $ gaz_v = 29
+    $ temper = 0
+
+    p "О тут печка!"
+
+    t "Сейчас выходить опасно!"
+
+    t "Кладите дров в печку!"
+
+    menu:
+        "Положить обычное количество дров":
+            $ temper += 15
+        "Положить побольше дров":
+            $ strange += 1
+            $ temper += 25
+            s "Тут очень жарко"
+
+    $ water -= 1
+
+    $ time = "00:00"
+
+    p "Сейчас полночь"
+
+    "Ночь"
+
+    show t surp at left
+
+    show s normal at right
+
+    show v normal at center
+
+    o "Здравствуйте!"
+
+    # ПРОВЕРКА: Если игра ЕЩЕ НЕ крашилась
+    if not persistent.game_crashed:
+        $ persistent.game_crashed = True
+        $ renpy.save("crash_save", "Точка невозврата")
+        $ persistent.game_crashed = True
+        $ renpy.quit()
+
+    hide t normal
+    show o no
+
+    o "Без чёрной водички мне грустить"
+
+    p "Она заразилась"
+
+    hide o no
+
+    s "Где она!"
+
+    p "Она ушла? Где ТП"
+
+    scene basement2
+
+    show s normal at right
+
+    show v normal at center
+
+    v "Что мы будем делать?"
+
+    s "Эту ночь надо пережить"
+
+    $ time = "01:25"
+
+    scene black
+
+    "Наступило утро"
+
+    jump day5
+
+
+label day5:
+    scene basement2
+    show s normal at right
+
+    show v normal at center
+
+    s "Уже 5 день. За эти дни мы многое что пережили"
+
+    $ time = "6:00"
+
+    v "Мне звонили..."
+
+    s "Что?"
+
+    p "Что то случилось?"
+
+    v "Мне сказали что этот подвал удалили"
+
+    v "Удалили копию"
+
+    v "Этот подвал не существует больше"
+
+    hide s normal
+
+    show s no at right
+
+    v "Мы медленно расстворяемся"
+
+    p "Саша уже"
+
+    s "Надо использовать ключ!"
+
+    $ persistent.game_crashed = True
+
+    if not persistent.game_crashed:
+        $ persistent.game_crashed = True
+        $ renpy.save("crash_save", "Точка невозврата")
+        $ persistent.game_crashed = True
+        $ renpy.quit()
+
+    scene home
+
+    s "Мы смогли вернуться домой!"
+
+    hide resources_hud()
+
+    s "Сегодня мой последний день!"
+
+    play music "audio/day5.mp3"
+
+    show t normal at left
+
+    show s normal at right
+
+    show v normal at center
+
+    s "А почему вас не было вчера?"
+
+    t "Подвал удалили и вы пропали"
+
+    k "Идите завтракать!"
+
+    scene home
+
+    show t normal at left
+
+    show s normal at right
+
+    show v normal at center
+
+    "Вы позавтракали"
+
+    s "А когда я уеду?"
+
+    d "Сегодня вечером"
+
+    scene day5
+
+    p "Мы в сарае соседа!"
+
+    s "О ту малина!"
+
+
+    show s normal at right
+
+    show v normal at center
+
+    "Вы пытались узнать правду весь день"
+
+    p "Чёрные люди вылезают из под земли"
+
+    p "Те люди которые в 2025 году заразилсь водой и не излечились побежали в лес и там залезли под землю"
+
+    v "Уже вечер"
+
+    "Вы поужинали и пошли провожать Сашу"
+
+    scene volkswagenday5
+
+    s "Пока!"
+
+    "Уехали"
+
+    "Вы так и не узнали правду"
+
+    if strange == 20:
+        jump true
+    else:
+        jump bad
+
+# Плохая концовка и хорошая
+
+
+screen game_credits():
+    # Запрещаем кликом пропускать этот экран
+    modal True
+
+    # Фон титров
+    add "#000"
+
+    # Размещаем текст по центру
+    vbox:
+        align (0.5, 0.4)
+        spacing 20
+
+        text "РАЗРАБОТЧИКИ: Саша, Floppa AI (нейросеть которую создал автор)" size 45 xalign 0.5 bold True
+        text "Идея и сценарий: Саша, Вика" size 30 xalign 0.5
+        text "Графика и спрайты: студия Floppa os, magnific, Гугл карты" size 30 xalign 0.5
+        text "Музыка: OST Бесконечное лето, Floppa os" size 30 xalign 0.5
+
+    # Кнопка для выхода в главное меню
+    textbutton "В главное меню":
+        align (0.5, 0.85)
+        action Return() # Возвращает в место вызова
+
+label bad:
+    scene basement
+
+    "Пора странно отвечать"
+
+    "Пора этот мир уничтожить"
+
+    "Пора истину узнать"
+
+    "Пора"
+
+    call screen game_credits
+
+    return
+
+label true:
+    scene black
+
+    "Истина"
+    show o normal at Transform(xalign=0.1, yalign=1.0)
+    stop music fadeout 1.0
+    show t normal at Transform(xalign=0.3, yalign=1.0)
+    show k normal at Transform(xalign=0.5, yalign=1.0)
+    show v normal at Transform(xalign=0.7, yalign=1.0)
+    play music "leto.mp3" fadein 1.0
+    show s normal at Transform(xalign=0.9, yalign=1.0)
+    python:
+            for save_name in renpy.list_saved_games(fast=True):
+                renpy.unlink_save(save_name)
+    v "Оказалось во всём виноват подвал!"
+
+    v "Во всём?"
+
+    t "В нашем подвале была старая скважина"
+
+    t "Эту скважину сломали и начало происходить это"
+
+    o "Все всё знают!"
+
+    k "Мы починили скважину с помощью игрока"
+
+    v "Но мы забрали у игрока силу"
+
+    v "Мы забрали у тебя силу Алина!"
+
+    $ persistent.game_over_forever = True
+
+    "РАЗРАБОТЧИКИ: Саша, Floppa AI (нейросеть которую создал автор)"
+    "Идея и сценарий: Саша, Вика"
+    "Графика и спрайты: студия Floppa os, magnific, Гугл карты"
+    "Музыка: OST Бесконечное лето, Floppa os"
+
+    "Всё!"
+
+    $ renpy.save_persistent()
+
+    "Пока!"
+
+    $ renpy.quit()

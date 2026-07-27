@@ -7,6 +7,8 @@ default persistent.vika = False
 init python:
     # persistent.velyminovoend = False
     # persistent.game_over_forever = False
+    if persistent.game_crashed is None:
+        persistent.game_crashed = False
     if persistent.game_over_forever:
         renpy.exports.quit()
     if persistent.velyminovoend:
@@ -119,6 +121,7 @@ screen shop_item(current_item):
 image o normal = "images/op.png"
 image o no = "images/opno.png"
 image s normal = "images/sasha.png"
+image s no = "images/sashano.png"
 image s surp = "images/sashasurp.png"
 image t normal = "images/tp.png"
 image v normal = "images/v.png"
