@@ -553,7 +553,9 @@ label day4:
 
     $ time = "17:50"
     $ water = 14
-    $ gaz = 30
+    $ gaz_v = 30
     $ electricity = 29
 
     p "У нас мало электричества!"
+
+    s "Согласен"

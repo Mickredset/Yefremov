@@ -354,27 +354,16 @@ screen main_menu():
     ## Этот тег гарантирует, что любой другой экран с тем же тегом будет
     ## заменять этот.
     tag menu
-
-    add gui.main_menu_background
-
-    ## Эта пустая рамка затеняет главное меню.
-    frame:
-        style "main_menu_frame"
-
-    ## Оператор use включает отображение другого экрана в данном. Актуальное
-    ## содержание главного меню находится на экране навигации.
-    use navigation
-
-    if gui.show_name:
-
-        vbox:
-            style "main_menu_vbox"
-
-            text "[config.name!t]":
-                style "main_menu_title"
-
-            text "[config.version]":
-                style "main_menu_version"
+    imagemap:
+        ground "gui/main_menu.png"
+        idle "gui/menu_normal.png"
+        hover "gui/menu_hover.png"
+        hotspot (83, 87, 739, 132) action Start() focus_mask None
+        hotspot (890, 65, 580, 120) action ShowMenu("load") focus_mask None
+        hotspot (560, 290, 610, 110) action ShowMenu("preferences") focus_mask None
+        hotspot (140, 510, 410, 100) action ShowMenu("about") focus_mask None
+        hotspot (1070, 520, 460, 110) action Quit(confirm = True) focus_mask None
+        hotspot (50, 820, 540, 140) action ShowMenu("help") focus_mask None
 
 
 style main_menu_frame is empty

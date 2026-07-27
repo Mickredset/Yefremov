@@ -324,7 +324,6 @@ define gui.scrollbar_tile = False
 define gui.slider_tile = False
 
 ## Главное меню
-define gui.main_menu_background = "images/coll.jpg"
 define config.main_menu_music = "fon.mp3"
 
 
