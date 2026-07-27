@@ -361,9 +361,9 @@ screen main_menu():
         hotspot (83, 87, 739, 132) action Start() focus_mask None
         hotspot (890, 65, 580, 120) action ShowMenu("load") focus_mask None
         hotspot (560, 290, 610, 110) action ShowMenu("preferences") focus_mask None
-        hotspot (140, 510, 410, 100) action ShowMenu("about") focus_mask None
+        hotspot (140, 510, 410, 100) action ShowMenu("help") focus_mask None
         hotspot (1070, 520, 460, 110) action Quit(confirm = True) focus_mask None
-        hotspot (50, 820, 540, 140) action ShowMenu("help") focus_mask None
+        hotspot (50, 820, 540, 140) action ShowMenu("about") focus_mask None
 
 
 style main_menu_frame is empty

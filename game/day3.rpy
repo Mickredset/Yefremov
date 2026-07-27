@@ -523,7 +523,7 @@ label day4:
 
     $ time = "17:48"
     $ water = 14
-    $ gaz = 32
+    $ gaz_v = 30
     $ electricity = 30
 
     scene adminpanel
@@ -553,9 +553,53 @@ label day4:
 
     $ time = "17:50"
     $ water = 14
-    $ gaz_v = 30
     $ electricity = 29
 
     p "У нас мало электричества!"
 
     s "Согласен"
+
+    show v normal at center
+    show s normal at left
+
+    k "Скоро ночь!"
+
+    k "Я уезжаю"
+
+    $ time = "18:20"
+    $ water = 6
+    $ electricity = 0
+    $ gaz_v = 29
+    $ temper = 0
+
+    t "Идите есть!"
+
+    "Вы поели"
+
+    show t normal at right
+
+    t "Мы отключились от сети и скопирлвали подвал нам"
+
+    t "Теперь у нас свой подвал"
+
+    t "Только есть одна проблема"
+
+    t "У нас подвал не наш"
+
+    t "Денис скопировал другой"
+
+    stop music
+
+    scene black
+
+    play music "audio/my_timer_sound.ogg"
+
+    $ renpy.pause(22.0, hard=True)
+
+    stop music
+
+    t "Наш подвал сейчас неопределённный"
+
+    scene basement2
+
+    p "Это не наш подвал!"
